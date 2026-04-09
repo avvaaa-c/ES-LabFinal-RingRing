@@ -191,8 +191,14 @@ void setup() {
   // Prof Note:  With complicated projects, I like having a
   // built in self test (BIST) for the 1st time I run my hardware.
   // Simply comment this out after your hardware checks.
-  BIST();
+  //BIST();
 
+  // bootup tones
+  buzzer.tone(800, 300);
+  buzzer.tone(1000, 300);
+  buzzer.tone(1200, 300);
+  buzzer.tone(1600, 300);
+  
   // setup connections
   connectWifi();
   setupMQTT();
@@ -424,11 +430,11 @@ void processMQTTMessage(char* topic, byte* json_payload, unsigned int length) {
     write7Seg(SEG7[currentDisplay]);
 
     // play ring-ring tone
-    buzzer.tone(1300, 100);
-    buzzer.tone(1800, 300);
+    buzzer.tone(1200, 100);
+    buzzer.tone(1600, 300);
     delay(400);
-    buzzer.tone(1300, 100);
-    buzzer.tone(1800, 300);
+    buzzer.tone(1200, 100);
+    buzzer.tone(1600, 300);
 
   } else if (String(topic) == topicsTopic) {
     // respond with registeredFor message
