@@ -53,7 +53,7 @@ const int mqttPort = 1883;
 // const uint32_t ID = ESP.getChipId();
 
 // ECE node name and type
-#define myNodeID "node04"
+#define myNodeID "node02"
 //compile_error_clear_after_updateing_XX_above();
 String nodeName = myNodeID;
 String nodeType = "ESP32";
